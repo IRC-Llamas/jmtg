@@ -5,7 +5,7 @@ public abstract class Card {
     protected CardType type;
     private ManaCost manaCost;
     
-    public Card(String name, ManaCost type, ManaCost manaCost) {
+    public Card(String name, CardType type, ManaCost manaCost) {
         this.name = name;
         this.type = type;
         this.manaCost = manaCost;
@@ -15,7 +15,7 @@ public abstract class Card {
         return name;
     }
 
-    public String getType() {
+    public CardType getType() {
         return type;
     }
 

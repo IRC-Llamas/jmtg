@@ -8,7 +8,7 @@ public class CreatureCard extends Card {
     private int power;
     private int toughness;
     
-    public CreatureCard(String name, String type, int manaCost, int power, int toughness) {
+    public CreatureCard(String name, CardType type, ManaCost manaCost, int power, int toughness) {
     	super(name, type, manaCost);
     	this.power = power;
     	this.toughness = toughness;

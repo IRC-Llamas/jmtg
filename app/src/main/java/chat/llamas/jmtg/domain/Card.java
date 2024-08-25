@@ -1,9 +1,9 @@
 package chat.llamas.jmtg.domain;
 
 public abstract class Card {
-    private String name;
-    private String type;
-    private int manaCost;
+    protected String name;
+    protected String type;
+    protected int manaCost;
 
     public Card(String name, String type, int manaCost) {
         this.name = name;
@@ -23,8 +23,6 @@ public abstract class Card {
         return manaCost;
     }
 
-    // Abstract method to be implemented by subclasses for applying effects
-    public abstract void applyEffect(GameState gameState);
 
     @Override
     public String toString() {

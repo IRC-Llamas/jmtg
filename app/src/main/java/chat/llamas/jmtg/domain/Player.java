@@ -23,13 +23,15 @@ public class Player {
 
     
 	public Player(String name, int lifeTotal, Deck deck) {
-		this.name = name;
-		this.lifeTotal = lifeTotal;
+		this(name, lifeTotal);
 		this.deck = deck;
-		hand = new ArrayList<>();
 	}
 	public void setDeck(Deck deck) {
 		this.deck = deck;
+	}
+	
+	public void applyDamage(int damage) {
+		lifeTotal = lifeTotal - damage;
 	}
 
     public void drawCard() {
@@ -47,5 +49,9 @@ public class Player {
     @Override
     public String toString() {
         return name + " (Life: " + lifeTotal + ", Hand: " + hand.size() + " cards)";
+    }
+    
+    public boolean isLost() {
+    	return lifeTotal <= 0;
     }
 }

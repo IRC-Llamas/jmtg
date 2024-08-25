@@ -2,10 +2,10 @@ package chat.llamas.jmtg.domain;
 
 public abstract class Card {
     protected String name;
-    protected String type;
-    protected int manaCost;
-
-    public Card(String name, String type, int manaCost) {
+    protected CardType type;
+    private ManaCost manaCost;
+    
+    public Card(String name, ManaCost type, ManaCost manaCost) {
         this.name = name;
         this.type = type;
         this.manaCost = manaCost;
@@ -19,7 +19,7 @@ public abstract class Card {
         return type;
     }
 
-    public int getManaCost() {
+    public ManaCost getManaCost() {
         return manaCost;
     }
 

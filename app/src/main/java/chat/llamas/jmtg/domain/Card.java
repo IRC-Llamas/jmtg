@@ -1,5 +1,7 @@
 package chat.llamas.jmtg.domain;
 
+import java.util.List;
+
 import lombok.Data;
 
 @Data
@@ -8,6 +10,7 @@ public abstract class Card {
     protected CardType type;
     private ManaCost manaCost;
     private boolean tapped;
+    private List<Rule> rules;
     
     public Card(String name, CardType type, ManaCost manaCost) {
         this.name = name;

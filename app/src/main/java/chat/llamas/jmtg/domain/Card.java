@@ -1,9 +1,13 @@
 package chat.llamas.jmtg.domain;
 
+import lombok.Data;
+
+@Data
 public abstract class Card {
     protected String name;
     protected CardType type;
     private ManaCost manaCost;
+    private boolean tapped;
     
     public Card(String name, CardType type, ManaCost manaCost) {
         this.name = name;

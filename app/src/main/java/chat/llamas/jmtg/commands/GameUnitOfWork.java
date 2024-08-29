@@ -16,6 +16,8 @@ public class GameUnitOfWork {
 	}
 	
 	public void validate(GameState gameState) throws InvalidCommandException {
+		// Validation has to consider effects of previous commands.
+		// Need to find a good way to do this (clone GameState?)
 		for (var command : commandStack) {
 			command.validate(gameState);
 		}

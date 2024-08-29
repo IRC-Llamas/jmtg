@@ -78,5 +78,7 @@ public class GameState implements GameStateBehavior {
 		this.players.clear();
 		this.activePlayer = Optional.of(m.getActivePlayer());
 		this.players.addAll(m.getPlayers());
+		// TODO: Not clear yet if the Player class needs
+		// the restore functionality of the memento.
 	}
 }

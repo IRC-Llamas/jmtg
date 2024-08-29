@@ -7,7 +7,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public class GameState {
+public class GameState implements GameStateBehavior {
 	private List<Player> players = new ArrayList<>();
 	
 	private Optional<Player> activePlayer = Optional.empty();
@@ -35,6 +35,18 @@ public class GameState {
     }
     
     public boolean isGameComplete() {
-    	return players.stream().filter(x -> x.getLifeTotal() > 0).count() > 1;
+    	return players.stream().filter(x -> x.isLost()).count() >= players.size() - 1;
     }
+
+	@Override
+	public void playCard(Player player, Card card) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeCardFromPlay(Card card) {
+		// TODO Auto-generated method stub
+		
+	}
 }

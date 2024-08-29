@@ -7,12 +7,12 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import lombok.Getter;
+
 public class GameState implements GameStateBehavior {
 	private List<Player> players = new ArrayList<>();
 	
 	private Optional<Player> activePlayer = Optional.empty();
-	
-	private Iterator<Player> playerIterator;
 
     public GameState(List<Player> players) {
     	this.players.addAll(players);
@@ -23,11 +23,12 @@ public class GameState implements GameStateBehavior {
     }
 
     public void turn() {
-    	if (Objects.isNull(playerIterator) || !playerIterator.hasNext()) {
-    		playerIterator = players.iterator();
-    		
+    	if (activePlayer.isEmpty() || Objects.equals(activePlayer.get(), players.getLast())) {
+    		activePlayer = Optional.of(players.getFirst());
     	}
-    	activePlayer = Optional.of(playerIterator.next());
+    	else {
+    		activePlayer = Optional.of(players.get(players.indexOf(activePlayer.get()) + 1));
+    	}
     }
     
     public Player getCurrentPlayer() {
@@ -48,5 +49,36 @@ public class GameState implements GameStateBehavior {
 	public void removeCardFromPlay(Card card) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public class GameStateMemento {
+		@Getter
+		private final List<Player> players;
+		
+		@Getter
+		private final Player activePlayer;
+		
+		private GameStateMemento(List<Player> players, Player activePlayer) {
+			this.players = List.copyOf(players);
+			
+			this.activePlayer = activePlayer;
+		}
+	}
+	
+	/**
+	 * @return An immutable copy of the game state.
+	 */
+	public GameStateMemento createMemento() {
+		GameStateMemento m = new GameStateMemento(players, activePlayer.get());
+		
+		return m;
+	}
+	
+	public void restore(GameStateMemento m) {
+		this.players.clear();
+		this.activePlayer = Optional.of(m.getActivePlayer());
+		this.players.addAll(m.getPlayers());
+		// TODO: Not clear yet if the Player class needs
+		// the restore functionality of the memento.
 	}
 }

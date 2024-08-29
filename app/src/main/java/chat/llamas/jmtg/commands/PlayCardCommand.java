@@ -4,7 +4,7 @@ import chat.llamas.jmtg.domain.Card;
 import chat.llamas.jmtg.domain.GameState;
 import chat.llamas.jmtg.domain.Player;
 
-public class PlayCardCommand implements Command {
+public class PlayCardCommand implements GameCommand {
     private Player player;
     private Card card;
 
@@ -18,6 +18,14 @@ public class PlayCardCommand implements Command {
     	game.playCard(player, card);
     }
 
+	@Override
+	public void validate(GameState game) throws InvalidCommandException {
+		// TODO Auto-generated method stub
+		
+	}
+    
+    /*
+
     @Override
     public void undo(GameState game) {
     	game.removeCardFromPlay(card);
@@ -27,4 +35,6 @@ public class PlayCardCommand implements Command {
     public void redo(GameState game) {
         execute(game);
     }
+    
+    */
 }

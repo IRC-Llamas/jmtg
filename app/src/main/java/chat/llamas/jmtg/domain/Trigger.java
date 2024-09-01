@@ -1,5 +1,8 @@
 package chat.llamas.jmtg.domain;
 
-public class Trigger {
+import lombok.Data;
 
+@Data
+public class Trigger {
+	private TriggerType triggerType;
 }

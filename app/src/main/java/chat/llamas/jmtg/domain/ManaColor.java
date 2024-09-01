@@ -6,6 +6,5 @@ public enum ManaColor {
     BLACK,
     RED,
     GREEN,
-    COLORLESS,
-    ANY
+    COLORLESS
 }

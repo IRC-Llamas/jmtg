@@ -35,7 +35,7 @@ class CustomManaTypePrivate implements CustomManaType {
 				return manaTypeMap.get(color);
 			}
 		}
-		return new CustomManaTypePrivate(colors);
+		return manaTypeMap.put(colors, new CustomManaTypePrivate(colors));
 	}
 	private CustomManaTypePrivate(ManaColor[] colors) {
 		this.colors = colors;

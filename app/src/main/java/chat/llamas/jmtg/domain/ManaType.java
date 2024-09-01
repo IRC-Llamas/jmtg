@@ -1,5 +1,5 @@
 package chat.llamas.jmtg.domain;
 
-public interface ManaTypeInterface {
+public interface ManaType {
 	ManaColor[] getColors();
 }

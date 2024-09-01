@@ -2,7 +2,7 @@ package chat.llamas.jmtg.domain;
 
 import java.util.Arrays;
 
-public enum StandardManaType implements ManaTypeInterface {
+public enum StandardManaType implements ManaType {
     WHITE(ManaColor.WHITE),
     BLUE(ManaColor.BLUE),
     BLACK(ManaColor.BLACK),

@@ -5,8 +5,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public interface CustomManaType extends ManaTypeInterface {
-	static class DefaultCustomManaType implements ManaTypeInterface {
+public interface CustomManaType extends ManaType {
+	static class DefaultCustomManaType implements ManaType {
 		
 		private ManaColor[] colors;
 		
@@ -17,7 +17,7 @@ public interface CustomManaType extends ManaTypeInterface {
 		}
 		
 	}
-	default ManaTypeInterface get(ManaColor... colors) {
+	default ManaType get(ManaColor... colors) {
 		if (Objects.isNull(colors) || colors.length == 0) {
 			throw new RuntimeException();
 		}

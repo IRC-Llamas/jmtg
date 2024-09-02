@@ -2,6 +2,7 @@ package chat.llamas.jmtg.domain;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 /**
@@ -16,6 +17,7 @@ public class Permanent {
 	private Player controller;
 	private Card parent;
 	private Set<PermanentType> permanentTypes = new HashSet<>();
+	private Optional<CreatureData> creatureData = Optional.empty();
 	public Permanent(Player controller, Card parent, PermanentType... types) {
 		this.controller = controller;
 		this.parent = parent;

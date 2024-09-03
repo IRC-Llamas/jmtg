@@ -1,12 +1,14 @@
 package chat.llamas.jmtg.domain;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import chat.llamas.jmtg.domain.Player.PlayerMemento;
 import lombok.Getter;
 
 public class GameState implements GameStateBehavior {
@@ -51,17 +53,22 @@ public class GameState implements GameStateBehavior {
 		
 	}
 	
-	public class GameStateMemento {
+	public static class GameStateMemento {
 		@Getter
-		private final List<Player> players;
+		private final List<PlayerMemento> players;
 		
 		@Getter
 		private final Player activePlayer;
 		
 		private GameStateMemento(List<Player> players, Player activePlayer) {
-			this.players = List.copyOf(players);
-			
 			this.activePlayer = activePlayer;
+			
+			this.players = new ArrayList<>();
+			for (Player player : players) {
+				this.players.add(player.createMemento());
+			}
+			players = Collections.unmodifiableList(players);
+			
 		}
 	}
 	
@@ -75,10 +82,13 @@ public class GameState implements GameStateBehavior {
 	}
 	
 	public void restore(GameStateMemento m) {
-		this.players.clear();
+		for (Player player : players) {
+			for (PlayerMemento pm : m.getPlayers()) {
+				if (Objects.equals(pm.getParentPlayer(), player)) {
+					player.restore(pm);
+				}
+			}
+		}
 		this.activePlayer = Optional.of(m.getActivePlayer());
-		this.players.addAll(m.getPlayers());
-		// TODO: Not clear yet if the Player class needs
-		// the restore functionality of the memento.
 	}
 }

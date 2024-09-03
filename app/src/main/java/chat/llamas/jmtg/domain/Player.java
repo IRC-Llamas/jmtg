@@ -2,7 +2,9 @@ package chat.llamas.jmtg.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+import chat.llamas.jmtg.domain.Deck.DeckMemento;
 import lombok.Data;
+import lombok.Getter;
 
 @Data
 public class Player {
@@ -54,4 +56,53 @@ public class Player {
     public boolean isLost() {
     	return lifeTotal <= 0;
     }
+    
+	public static class PlayerMemento {
+
+		@Getter
+		private final Player parentPlayer;
+		
+		@Getter
+		private final String name;
+		
+		@Getter
+		private final int lifeTotal;
+		
+		@Getter
+		private final List<Card> hand;
+
+		@Getter
+	    private final DeckMemento deck;
+		
+		private PlayerMemento(Player parentPlayer, String name, int lifeTotal, List<Card> hand, Deck deck) {
+			this.parentPlayer = parentPlayer;
+			
+			this.hand = List.copyOf(hand);
+			
+			this.name = name;
+			
+			this.lifeTotal = lifeTotal;
+			
+			this.deck = deck.createMemento();					
+		}
+	}
+	
+	/**
+	 * @return An immutable copy of the Player.
+	 */
+	public PlayerMemento createMemento() {
+		PlayerMemento m = new PlayerMemento(this, name, lifeTotal, hand, deck);
+		
+		return m;
+	}
+	
+	public void restore(PlayerMemento m) {
+		this.name = m.getName();
+		
+		this.lifeTotal = m.getLifeTotal();
+		
+		this.hand.clear();
+		
+		this.hand.addAll(m.getHand());		
+	}
 }

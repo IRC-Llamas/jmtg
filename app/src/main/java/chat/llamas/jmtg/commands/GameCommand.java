@@ -6,6 +6,4 @@ public interface GameCommand {
     void execute(GameState game) throws InvalidCommandException;
 
     void validate(GameState game) throws InvalidCommandException;
-
-    void undo(GameState game) throws InvalidCommandException;
 }

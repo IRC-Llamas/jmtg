@@ -23,12 +23,6 @@ public class PlayCardCommand implements GameCommand {
 		// TODO Auto-generated method stub
 		
 	}
-
-	@Override
-	public void undo(GameState game) throws InvalidCommandException {
-		throw new InvalidCommandException("Doen't support undo", new UnsupportedOperationException());
-	}
-    
     /*
 
     @Override

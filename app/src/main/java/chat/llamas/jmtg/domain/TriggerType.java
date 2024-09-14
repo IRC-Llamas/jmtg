@@ -6,4 +6,6 @@ public enum TriggerType {
     ATTACK,
     DRAW,
     END_STEP,
+    GAIN_LIFE,
+    LOSE_FILE
 }

@@ -8,7 +8,7 @@ import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import chat.llamas.jmtg.domain.CombatResults;
-import chat.llamas.jmtg.domain.CreatureCard;
+import chat.llamas.jmtg.domain.card.CreatureCard;
 
 public class CombatResolver {
 

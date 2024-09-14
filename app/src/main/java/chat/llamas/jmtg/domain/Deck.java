@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import chat.llamas.jmtg.domain.card.Card;
+
 
 public class Deck {
     private List<Card> cards;

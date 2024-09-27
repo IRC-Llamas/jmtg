@@ -1,8 +1,8 @@
 package chat.llamas.jmtg.commands;
 
-import chat.llamas.jmtg.domain.Card;
 import chat.llamas.jmtg.domain.GameState;
 import chat.llamas.jmtg.domain.Player;
+import chat.llamas.jmtg.domain.card.Card;
 
 public class PlayCardCommand implements GameCommand {
     private Player player;
@@ -23,7 +23,6 @@ public class PlayCardCommand implements GameCommand {
 		// TODO Auto-generated method stub
 		
 	}
-    
     /*
 
     @Override

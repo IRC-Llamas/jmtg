@@ -1,4 +1,4 @@
-package chat.llamas.jmtg.domain;
+package chat.llamas.jmtg.domain.card;
 
 public enum CardType {
 	LAND(CardTypeType.PERMANENT),

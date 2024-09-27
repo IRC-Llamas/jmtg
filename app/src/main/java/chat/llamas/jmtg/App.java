@@ -3,14 +3,8 @@
  */
 package chat.llamas.jmtg;
 
-import java.util.Arrays;
-import java.util.List;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import chat.llamas.jmtg.domain.GameState;
-import chat.llamas.jmtg.domain.Player;
 
 @SpringBootApplication
 public class App {
@@ -20,18 +14,5 @@ public class App {
 
     public static void main(String[] args) {
 		SpringApplication.run(App.class, args);
-
-        Player player1 = new Player("Alice", 20);
-        Player player2 = new Player("Bob", 20);
-        List<Player> players = Arrays.asList(player1, player2);
-        
-        GameState gameState = new GameState(players);
-        TurnManager turnManager = new TurnManager(gameState);
-
-        // Simulate a few turns
-        while (!gameState.isGameComplete()) {
-            turnManager.startTurn();
-            System.out.println(gameState);
-        }
     }
 }

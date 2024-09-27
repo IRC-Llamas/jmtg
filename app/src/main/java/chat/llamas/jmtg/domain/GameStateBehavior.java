@@ -2,6 +2,8 @@ package chat.llamas.jmtg.domain;
 
 import java.util.List;
 
+import chat.llamas.jmtg.domain.card.Card;
+
 public interface GameStateBehavior {
 	public void turn();
 	

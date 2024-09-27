@@ -1,5 +1,6 @@
-package chat.llamas.jmtg.domain;
+package chat.llamas.jmtg.domain.card;
 
+import chat.llamas.jmtg.domain.ManaCost;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -19,4 +20,6 @@ public class CreatureCard extends Card {
         return String.format("CreatureCard[name=%s, manaCost=%d, power=%d, toughness=%d]", 
                              getName(), getManaCost(), power, toughness);
     }
+    
+    
 }

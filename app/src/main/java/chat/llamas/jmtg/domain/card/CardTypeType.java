@@ -1,4 +1,4 @@
-package chat.llamas.jmtg.domain;
+package chat.llamas.jmtg.domain.card;
 
 enum CardTypeType {
 	PERMANENT,

@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
+import chat.llamas.jmtg.domain.card.Card;
 import lombok.Data;
 
 /**

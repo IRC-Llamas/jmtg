@@ -1,9 +1,23 @@
-package chat.llamas.jmtg.domain;
+package chat.llamas.jmtg.domain.card;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
+import chat.llamas.jmtg.domain.ManaCost;
+import chat.llamas.jmtg.domain.Rule;
 import lombok.Data;
 
+
+@JsonTypeInfo(
+        use = JsonTypeInfo.Id.NAME,
+        include = JsonTypeInfo.As.PROPERTY,
+        property = "type"
+)
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = CreatureCard.class, name = "creature")
+})
 @Data
 public abstract class Card {
     protected String name;

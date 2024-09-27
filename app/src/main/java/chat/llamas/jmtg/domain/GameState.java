@@ -7,6 +7,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import chat.llamas.jmtg.domain.card.Card;
 import lombok.Getter;
 
 public class GameState implements GameStateBehavior {

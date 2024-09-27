@@ -2,6 +2,7 @@ package chat.llamas.jmtg.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+import chat.llamas.jmtg.domain.card.Card;
 import lombok.Data;
 
 @Data
